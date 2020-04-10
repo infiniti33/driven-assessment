@@ -1,26 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+
+import Board from './components/Board';
+import './styles/styles.css';
 
 function App() {
+  const [nRows, setNRows] = useState(8);
+  const [inputText, setInputText] = useState('');
+
+  const handleInputChange = value => {
+    setInputText(value);
+    if (typeof value === 'number') {
+      setNRows(value)
+    }
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      <Board className='board' nRows={nRows} />
+      <div className='input'>
+        <input type='text' value={inputText} onChange={(e) => handleInputChange(e.target.value)} />
+      </div>
     </div>
-  );
+  )
 }
 
 export default App;
