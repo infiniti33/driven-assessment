@@ -9,8 +9,8 @@ function App() {
 
   const handleInputChange = value => {
     setInputText(value);
-    if (typeof value === 'number') {
-      setNRows(value)
+    if (Number(value) > 0) {
+      setNRows(Number(value))
     }
   }
 
