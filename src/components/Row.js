@@ -3,7 +3,7 @@ import React from 'react';
 import Square from './Square';
 
 const Row = props => {
-  const { row, columns, startBlack, hasInitialPiece, initialPieceColor } = props;
+  const { row, columns, startBlack, rowState } = props;
 
   const renderSquares = numSquares => {
     const squares = [];
@@ -17,8 +17,7 @@ const Row = props => {
           key={`square${i}`}
           row={row}
           col={i}
-          hasInitialPiece={hasInitialPiece}
-          initialPieceColor={initialPieceColor}
+          squareState={rowState[i]}
         />
       );
       isBlack = !isBlack;
