@@ -1,10 +1,9 @@
 import React from 'react';
 
 import Square from './Square';
-import '../styles/styles.css';
 
 const Row = props => {
-  const { columns, startBlack } = props;
+  const { row, columns, startBlack, hasInitialPiece, initialPieceColor } = props;
 
   const renderSquares = numSquares => {
     const squares = [];
@@ -13,7 +12,14 @@ const Row = props => {
     for (let i = 0; i < numSquares; i++) {
       const color = isBlack ? 'black' : 'white';
       squares.push(
-        <Square color={color} key={`square${i}`} />
+        <Square
+          color={color}
+          key={`square${i}`}
+          row={row}
+          col={i}
+          hasInitialPiece={hasInitialPiece}
+          initialPieceColor={initialPieceColor}
+        />
       );
       isBlack = !isBlack;
     }
