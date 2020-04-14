@@ -16,13 +16,17 @@
   border: 0.5px white solid;
 }
 
+.controls-text {
+  color: white;
+  font-size: 14pt;
+}
+
 .row {
   height: 50px;
   display: flex;
 }
 
 .controls-container {
-  display: flex;
   height: 300px;
   padding: 30px;
   justify-content: center;
