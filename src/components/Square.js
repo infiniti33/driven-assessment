@@ -3,14 +3,12 @@ import '../styles/styles.css'
 import GamePiece from './GamePiece';
 
 const Square = props => {
-  const { color, hasInitialPiece, initialPieceColor, row, col } = props;
-
-  let pieceColor = initialPieceColor;
-  let hasGamePiece = hasInitialPiece;
+  const { color, row, col, squareState } = props;
+  const hasGamePiece = squareState.color === '' ? false : true;
 
   return (
     <div className={`square ${color}`}>
-      {hasGamePiece && <GamePiece row={row} col={col} color={pieceColor} />}
+      {hasGamePiece && <GamePiece row={row} col={col} color={squareState.color} />}
     </div>
   );
 };
