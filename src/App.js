@@ -17,7 +17,7 @@ function App() {
   return (
     <div className='App'>
       <Board className='board' nRows={nRows} />
-      <div className='input'>
+      <div className='controls-container'>
         <input type='text' value={inputText} onChange={(e) => handleInputChange(e.target.value)} />
       </div>
     </div>
