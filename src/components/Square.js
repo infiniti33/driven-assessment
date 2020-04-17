@@ -8,7 +8,7 @@ const Square = props => {
 
   return (
     <div className={`square ${color}`}>
-      {hasGamePiece && <GamePiece row={row} col={col} color={squareState.color} />}
+      {hasGamePiece && <GamePiece row={row} col={col} color={squareState.color} shape={squareState.shape} />}
     </div>
   );
 };
