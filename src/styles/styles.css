@@ -9,28 +9,27 @@
   flex-wrap: wrap;
 }
 
-.game-piece {
-  height: 25px;
-  width: 25px;
-  border-radius: 50%;
-  border: 0.5px white solid;
-}
-
 .controls-text {
   color: white;
   font-size: 14pt;
 }
 
 .row {
-  height: 50px;
   display: flex;
 }
 
 .controls-container {
   height: 300px;
   padding: 30px;
-  justify-content: center;
-  align-items: center;
+
+}
+
+.p1-controls-container {
+  display: flex;
+}
+
+.p2-controls-container {
+  display: flex;
 }
 
 .square {
@@ -42,7 +41,7 @@
 }
 
 .black {
-  background-color: black;
+  background-color: rgb(66, 60, 60);
 }
 
 .white {
