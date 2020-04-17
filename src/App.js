@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 import Board from './components/Board';
-import ColorRadio from './components/ColorRadio';
+import Radio from './components/Radio';
 
 function App() {
   const [nRows, setNRows] = useState(8);
@@ -22,6 +22,7 @@ function App() {
           return {
             color,
             player,
+            shape: 'triangle',
           };
         });
       });
@@ -48,6 +49,17 @@ function App() {
     }));
   };
 
+  const handleShapeChange = (shape, player) => {
+    setPieceState(pieceState.map(row => {
+      return row.map(square => {
+        if (square.player === player) {
+          square.shape = shape;
+        };
+        return square;
+      });
+    }));
+  };
+
   return (
     <div className='App'>
       <Board className='board' nRows={nRows} pieceState={pieceState} />
@@ -56,8 +68,14 @@ function App() {
           Board Size
         </p>
         <input type='text' value={inputText} onChange={(e) => handleBoardSizeChange(e.target.value)} />
-        <ColorRadio player={1} handleChange={handleColorChange} />
-        <ColorRadio player={2} handleChange={handleColorChange} />
+        <div className='p1-controls-container'>
+          <Radio player={1} option='Color' options={['Red', 'Black', 'Blue']} handleChange={handleColorChange} />
+          <Radio player={1} option='Shape' options={['Square', 'Circle', 'Triangle']} handleChange={handleShapeChange} />
+        </div>
+        <div className='p2-controls-container'>
+          <Radio player={2} option='Color' options={['Red', 'Black', 'Blue']} handleChange={handleColorChange} />
+          <Radio player={2} option='Shape' options={['Square', 'Circle', 'Triangle']} handleChange={handleShapeChange} />
+        </div>
       </div>
     </div >
   )
